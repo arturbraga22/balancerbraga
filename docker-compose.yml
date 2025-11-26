@@ -1,0 +1,25 @@
+
+services:
+  loadbalancer:
+    build: ./loadbalancer
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server1
+      - server2
+      - server3
+
+  server1:
+    build: ./servers/server1
+    ports:
+      - "3001:3000"
+
+  server2:
+    build: ./servers/server2
+    ports:
+      - "3002:3000"
+
+  server3:
+    build: ./servers/server3
+    ports:
+      - "3003:3000"
